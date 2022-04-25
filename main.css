@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+body,
+input,
+select,
+textarea,
+body * {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  box-sizing: border-box;
+}
+body::after,
+body::before,
+input::after,
+input::before,
+select::after,
+select::before,
+textarea::after,
+textarea::before,
+body *::after,
+body *::before {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #e6e6e6;
+  padding: .3rem;
+}
+
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  margin: 0 0 2em;
+}
+
+.container {
+  position: relative;
+  max-width: 40rem;
+  margin: 5rem auto;
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
+  justify-content:space-around;
+  flex-wrap: wrap;
+  text-align: center;
+  margin-bottom: 3.25rem;
+}
+
+.footer{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  text-align: center;
+  font-size: .8rem;
+}
+
+.footer-text{
+    font-size: .8rem;
+    color: grey;
+    margin: 5rem 0;
+}
+
+fieldset {
+  margin: 0 0 3rem;
+  padding: 0;
+  border: none;
+}
+
+.form-group {
+  position: relative;
+  margin-top: 2.25rem;
+}
+
+.form-group:last-child{
+    margin-top: 1rem;
+}
+
+.form-inline > .form-group,
+.form-inline > .btn {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: .5rem .6rem;
+    margin: .3rem 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: .5rem;
+    box-sizing: border-box;
+    font-size: 1rem;
+  }
+
+
+
+.button {
+  position: relative;
+  background: currentColor;
+  border: 1px solid currentColor;
+  font-size: 1.1rem;
+  color: #ff0000;
+  margin: 3% 0;
+  padding: 1% 3%;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    border-radius: .5rem;
+}
+.button span {
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+
+.button:focus {
+  outline: none;
+}
+#logo{
+    max-width: 100%;
+    margin-bottom: 3.25rem;
+    display: none;
+}
+
+.base-selector{
+  justify-content:space-around;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.base-selector img{
+    max-width: 50px;
+    margin: 0 .3rem;
+}
+.base-selector .active{
+    transform: scale(1.3);
+}

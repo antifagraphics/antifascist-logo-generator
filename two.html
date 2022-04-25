@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="dist/circletext.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="main.css">
+        <title>Antifascist Logo Generator</title>
+        <meta name="description" content="Create your own variation of the anti-fascist action logo.">
+        <meta name="keywords" content="Antifascist Action, Antifa, Logo, Generator, Antifaschistische Aktion">
+        <meta name="author" content="Antifa Graphics">
+        <script>
+            function hitInfo() {
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", "https://api.countapi.xyz/info/antifagraphics.github.io/awesomeclick");
+                xhr.responseType = "json";
+                xhr.onload = function() {
+                    document.querySelector('#visits').innerText = this.response.value;
+                }
+                xhr.send();
+            };
+            hitInfo();
+        </script>
+    </head>
+
+<body>
+    <div class="container">
+        <form>
+            <h1>Antifascist Logo Generator</h1>
+            <div class="base-selector">
+                <a href="index.html"><img src="img/antifascist-action-base-flag.svg"></a>
+                <a href="two.html"><img class="active" src="img/antifascist-action-red-flag.svg"></a>
+                <a href="three.html"><img src="img/antifascist-action-black-flag.svg"></a>
+                <a href="four.html"><img src="img/antifascist-action-black-alternate-flag.svg"></a>
+            </div>
+            <div class="form-group">
+                <label for="input" class="control-label">Upper Text</label><i class="bar"></i>
+                <input id="antifa-group" type="text" required="required" value="Antifascist"/>
+            </div>
+            <div class="form-group">
+                <label for="input" class="control-label">Lower Text</label><i class="bar"></i>
+                <input id="antifa-label" type="text" required="required" value="Logo Generator"/>
+            </div>
+            
+        </form>
+        <div class="button-container">
+            <button type="button" class="button" onClick="generateImage()"><span>Generate Logo</span></button>
+        </div>
+
+
+        <canvas id="logo" height="2000" width="2000"></canvas>
+
+        <div class="button-container">
+            <button type="button" class="button" onClick="downloadImage()"><span>Download</span></button>
+        </div>
+
+        <div class="">
+            <p style="text-align:center;"><span style="color: red;" id="visits">???</span> logos created in total</p>
+        </div>
+
+        <div class="footer-text">
+            <p>This is a logo generator of "Antifascist Action".
+                The basic idea and first drafts were designed by Max Gebhard.
+                The code of this generator is based on the Github repository of <a target="_blank" href="https://github.com/BambataTech/antifa-generator">BambataTech</a>.</p>
+        </div>
+
+        <div class="footer">
+            <a target="_blank" href="https://antifagraphics.github.io">Antifa Graphics</a>
+            <a target="_blank" href="https://antifagraphics.github.io/linklist">Linklist</a>
+            <a target="_blank" href="https://instagram.com/antifagraphics">Instagram</a>
+        </div>
+
+    </div>
+    <script>
+        const button = document.querySelector('.button');
+        const logoCanvas = document.getElementById('logo')
+
+        function generateImage() {
+            antifaUpper = document.getElementById('antifa-group')
+            antifaLower = document.getElementById('antifa-label')
+
+            ctx = logoCanvas.getContext("2d");
+            const background = new Image();
+            background.src = "img/antifascist-action-red-flag.svg";
+            background.onload = function () {
+                ctx.drawImage(background, 0, 0, 2000, 2000);
+                writeTopCircle(antifaUpper.value, "logo", 2000, "white")
+                writeBottomCircle(antifaLower.value, "logo", 2000, "white")
+                logoCanvas.style.display = "flex"
+            }
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "https://api.countapi.xyz/hit/antifagraphics.github.io/awesomeclick?enable_reset=0");
+            xhr.responseType = "json";
+            xhr.onload = function() {
+                document.querySelector('#visits').innerText = this.response.value;
+            }
+            xhr.send();
+        };
+
+        function downloadImage() {
+            const img = logoCanvas.toDataURL("image/png");
+            console.log('img :>> ', img);
+            const link = document.createElement('a');
+            link.href = img;
+            link.download = 'antifascist-logo.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        };
+
+    </script>
+
+</body>
+
+</html>
