@@ -10,18 +10,21 @@
     <meta name="description" content="Create your own variation of the anti-fascist action logo.">
     <meta name="keywords" content="Antifascist Action, Antifa, Logo, Generator, Antifaschistische Aktion">
     <meta name="author" content="Antifa Graphics">
+    <!-- Matomo -->
     <script>
-        function hitInfo() {
-            var xhr = new XMLHttpRequest();
-            xhr.open("GET", "https://api.countapi.xyz/info/antifagraphics.github.io/awesomeclick");
-            xhr.responseType = "json";
-            xhr.onload = function() {
-                document.querySelector('#visits').innerText = this.response.value;
-            }
-            xhr.send();
-        };
-        hitInfo();
+      var _paq = window._paq = window._paq || [];
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="//analytics.hosting117666.a2f78.netcup.net/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '2']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+      })();
     </script>
+    <!-- End Matomo Code -->
 </head>
 
 <body>
